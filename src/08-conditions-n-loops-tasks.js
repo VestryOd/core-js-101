@@ -27,8 +27,18 @@
  *  21 => 'Fizz'
  *
  */
-function getFizzBuzz(/* num */) {
-  throw new Error('Not implemented');
+function getFizzBuzz(num) {
+  let res = null;
+  if (num % 3 === 0 && num % 5 === 0) {
+    res = 'FizzBuzz';
+  } else if (num % 3 === 0) {
+    res = 'Fizz';
+  } else if (num % 5 === 0) {
+    res = 'Buzz';
+  } else {
+    res = num;
+  }
+  return res;
 }
 
 
@@ -43,8 +53,9 @@ function getFizzBuzz(/* num */) {
  *   5  => 120
  *   10 => 3628800
  */
-function getFactorial(/* n */) {
-  throw new Error('Not implemented');
+function getFactorial(n) {
+  if (n < 0 || n > 12) throw new RangeError('Out of range!');
+  return (n === 0 || n === 1) ? 1 : n * getFactorial(n - 1);
 }
 
 
@@ -60,8 +71,14 @@ function getFactorial(/* n */) {
  *   5,10  =>  45 ( = 5+6+7+8+9+10 )
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
-function getSumBetweenNumbers(/* n1, n2 */) {
-  throw new Error('Not implemented');
+function getSumBetweenNumbers(n1, n2) {
+  let res = n1;
+  let cur = n1 + 1;
+  for (let index = n1; index < n2; index += 1) {
+    res += cur;
+    cur += 1;
+  }
+  return res;
 }
 
 
@@ -80,8 +97,8 @@ function getSumBetweenNumbers(/* n1, n2 */) {
  *   10,1,1   =>  false
  *   10,10,10 =>  true
  */
-function isTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isTriangle(a, b, c) {
+  return a + b > c && a + c > b && b + c > a;
 }
 
 
@@ -118,6 +135,17 @@ function isTriangle(/* a, b, c */) {
  *
  */
 function doRectanglesOverlap(/* rect1, rect2 */) {
+  // const h1 = rect1.height;
+  // const h2 = rect2.height;
+  // const l1 = rect1.left;
+  // const l2 = rect2.left;
+  // const t1 = rect1.top;
+  // const t2 = rect2.top;
+  // const w1 = rect1.width;
+  // const w2 = rect2.width;
+  // const checkTop = (t2 > t1 && t2 < h1) || (t1 > t2 && t1 < h2);
+  // const checkLeft = (l2 > l1 && l2 < w1) || (l1 > l2 && l1 < w2);
+  // return checkTop && checkLeft;
   throw new Error('Not implemented');
 }
 
@@ -225,8 +253,8 @@ function reverseString(/* str */) {
  *   87354 => 45378
  *   34143 => 34143
  */
-function reverseInteger(/* num */) {
-  throw new Error('Not implemented');
+function reverseInteger(num) {
+  return Number(num.toString().split('').reverse().join(''));
 }
 
 
